@@ -33,7 +33,7 @@ class Lexer:
                 elif char in (' ', '\t', '\n'):
                     pass
                 else:
-                    print(f" Lexical error: unrecognized character {char} at pos {pos}")
+                    print(f"Lexical error: unrecognized character {char} at pos {pos}")
                     return []
                 
             elif state == "IDENTIFIER":
@@ -140,7 +140,7 @@ class Lexer:
             print(f"Lexical error: unterminated string literal '{curr_token}'")
             return []
         else:
-            print(f"s: Lexical error: unrecognized character {curr_token} at pos {pos - 1}")
+            print(f"Lexical error: unrecognized character {curr_token} at pos {pos - 1}")
             return []
 
         return tokens
