@@ -10,9 +10,6 @@ class Lexer:
         
         while pos < len(self.input_program):
             char = self.input_program[pos]
-            # print("curr_token: ", curr_token)
-            # print("curr pos: ", pos)
-            # print("curr char: ", char)
 
             if state == "START":
                 if char.isalpha():
@@ -37,13 +34,13 @@ class Lexer:
                     pass
                 else:
                     print(f" Lexical error: unrecognized character {char} at pos {pos}")
-                    return tokens
+                    return []
                 
             elif state == "IDENTIFIER":
                 if char.isalnum() or char == "_":
                     curr_token += char
                 else:
-                    if curr_token in {"RETRIEVE", "GENERATE", "SELECT", "FROM", "WHERE", "LIMIT", "AND", "OR", "SOURCE", "QUERY", "PROMPT"}:
+                    if curr_token in {"RETRIEVE", "GENERATE", "SELECT", "FROM", "WHERE", "LIMIT", "AND", "OR", "QUERY", "PROMPT", "SOURCE"}:
                         tokens.append(("KEYWORD", curr_token))
                     else:
                         tokens.append(("IDENTIFIER", curr_token))
@@ -62,15 +59,10 @@ class Lexer:
 
             elif state == "OPERATOR":
                 if curr_token == "=":
-                    if char == "=":
-                        tokens.append(("OPERATOR", "=="))
-                        curr_token = ""
-                        state = "START"
-                        pos += 1
-                        continue
-                    else:
-                        print(f"Lexical error: unrecognized token {curr_token} at pos {pos}")
-                        return tokens
+                    tokens.append(("OPERATOR", "="))
+                    curr_token = ""
+                    state = "START"
+                    continue
                 if curr_token == "!":
                     if char == "=":
                         tokens.append(("OPERATOR", "!="))
@@ -80,7 +72,7 @@ class Lexer:
                         continue
                     else:
                         print(f"Lexical error: unrecognized token {curr_token} at pos {pos}")
-                        return tokens
+                        return []
                 elif curr_token == "<":
                     if char == "=":
                         tokens.append(("OPERATOR", "<="))
@@ -112,7 +104,7 @@ class Lexer:
                     continue
                 else:
                     print(f"Lexical error: unrecognized character {char} at pos {pos}")
-                    return tokens
+                    return []
 
             elif state == "STRING":
                 if char == '"':
@@ -127,7 +119,7 @@ class Lexer:
             return tokens
 
         if state == "IDENTIFIER":
-            if curr_token in {"RETRIEVE", "GENERATE", "SELECT", "FROM", "WHERE", "LIMIT", "AND", "OR", "SOURCE", "QUERY", "PROMPT"}:
+            if curr_token in {"RETRIEVE", "GENERATE", "SELECT", "FROM", "WHERE", "LIMIT", "AND", "OR", "SOURCE", "QUERY", "PROMPT", "SOURCE"}:
                 tokens.append(("KEYWORD", curr_token))
             else:
                 tokens.append(("IDENTIFIER", curr_token))
@@ -143,12 +135,12 @@ class Lexer:
                 tokens.append(("OPERATOR", "*"))
             else:
                 print(f"Lexical error: unrecognized character {curr_token} at pos {pos - 1}")
-                return tokens
+                return []
         elif state == "STRING":
-            print(f"Lexical error: unclosed string literal {curr_token}")
-            return tokens
+            print(f"Lexical error: unterminated string literal '{curr_token}'")
+            return []
         else:
             print(f"s: Lexical error: unrecognized character {curr_token} at pos {pos - 1}")
-            return tokens
+            return []
 
         return tokens
