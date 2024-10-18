@@ -123,13 +123,13 @@ Sample programs are defined in the list `sample_programs` in the script.
 * Program Description: This program shows how our lexer handles unrecognized tokens like the "#".
 
 #### Sample Program 5:
-* Program: ```RETRIEVE:\nSOURCE: "CustomersDB.json"\nQUERY: SELECT _name, email FROM customers WHERE active = "true";\nLIMIT: 10\nGENERATE:\nPROMPT: "Create thank you emails to each active customer for being a valued customer"```
+* Program: ```RETRIEVE:\nSOURCE: "CustomersDB.json"\nQUERY: SELECT na_me, _email FROM customers WHERE active = "true";\nLIMIT: 10\nGENERATE:\nPROMPT: "Create thank you emails to each active customer for being a valued customer"```
 
 * Expected Result:   
-```Lexical error: unrecognized character _ at pos 51 Tokens: []```
+```Lexical error: unrecognized character _ at pos 58 Tokens: []```
 
 * Output:
-```Lexical error: unrecognized character _ at pos 51 Tokens: []```
+```Lexical error: unrecognized character _ at pos 58 Tokens: []```
 
 * Program Description: Our program does not support identifiers that begin with "_", but does support identifiers that contain "_". This program is used to demonstrate that our lexer will fail when an identifier starts with an underscore, not when the underscore is within the iden
 
