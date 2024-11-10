@@ -1,8 +1,3 @@
-# RAGLang Lexer
-To execute our script, run the following commands:
-1. `cd lexer`
-2. `python3 run.py`.
-
 ### 1: Lexical Specification of RagLang
 Keywords: `"RETRIEVE"` + `"GENERATE"` + `"SELECT"` + `"FROM"` + `"WHERE"` + `"LIMIT"` + `"OR"` + `"AND"` + `"QUERY"` + `"PROMPT"` + `"SOURCE"`
 
