@@ -1,3 +1,4 @@
+# RAGLang Lexer
 ### 1: Lexical Specification of RagLang
 Keywords: `"RETRIEVE"` + `"GENERATE"` + `"SELECT"` + `"FROM"` + `"WHERE"` + `"LIMIT"` + `"OR"` + `"AND"` + `"QUERY"` + `"PROMPT"` + `"SOURCE"`
 
