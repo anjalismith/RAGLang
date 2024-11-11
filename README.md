@@ -8,3 +8,23 @@ RAGLang (Retrieval-Augmented Generation Language) is a programming language that
 To execute our script, run the following commands:
 1. `cd lexer`
 2. `python3 run.py`.
+
+## [RAGLang Parser](parser/README.md)
+To execute our script, run the following commands:
+1. `cd parser`
+2. `python3 run.py`.
+
+Program -> RQG
+R -> "RETRIEVE" Colon Source
+Source -> "SOURCE" Colon String
+Q -> "QUERY" Colon "SELECT" A "FROM" Identifier W L
+W -> "WHERE" D Semicolon | Semicolon
+L -> "LIMIT" Colon Number | epsilon
+A -> List | "*"
+List -> Identifier | Identifier Comma List
+D -> Condition ("AND | OR") D | Condition
+Condition -> Identifier Operator Value
+Value -> String | Number
+G -> "GENERATE" Colon Prompt
+Prompt -> "PROMPT" Colon String
+

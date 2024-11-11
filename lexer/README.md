@@ -6,7 +6,9 @@ Identifiers: `[a-zA-Z][a-zA-Z0-9_]*`
 
 Number: `[0-9]+`
 
-Semicolon: `":"`
+Colon: `":"`
+
+Semicolon: '";"'
 
 Comma: `","`
 
