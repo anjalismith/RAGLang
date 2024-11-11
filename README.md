@@ -14,6 +14,8 @@ To execute our script, run the following commands:
 1. `cd parser`
 2. `python3 run.py`.
 
+
+### 1. RagLang Grammar
 Program -> RQG
 R -> "RETRIEVE" Colon Source
 Source -> "SOURCE" Colon String
@@ -27,4 +29,23 @@ Condition -> Identifier Operator Value
 Value -> String | Number
 G -> "GENERATE" Colon Prompt
 Prompt -> "PROMPT" Colon String
+
+### 2. Parsing Algorithm
+
+
+### 3. Sample Input Programs
+* Input:
+* Lexer Output (Tokenization):
+* Parser Output (AST):
+
+### 3. Sample Input Programs
+
+### 3. Shell Script
+
+### 3. Video
+
+
+
+
+
 
