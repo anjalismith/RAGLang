@@ -89,11 +89,11 @@ Our AST removes redundancy by abstracting away syntax details like extra keyword
 * Input:
 ```
 RETRIEVE:
-        SOURCE: "SalesDB.json"
-        QUERY: SELECT product, total_sales FROM sales_data WHERE year = "2023" AND region = "North America";
-        LIMIT: 5
-    GENERATE:
-        PROMPT: "Summarize the top-performing products in a brief report highlighting key sales figures and top products"
+    SOURCE: "SalesDB.json"
+    QUERY: SELECT product, total_sales FROM sales_data WHERE year = "2023" AND region = "North America";
+    LIMIT: 5
+GENERATE:
+    PROMPT: "Summarize the top-performing products in a brief report highlighting key sales figures and top products"
 ```
 * Lexer Output (Tokenization):
 ```
