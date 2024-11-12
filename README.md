@@ -10,10 +10,11 @@ To execute our script, run the following commands:
 2. `python3 run.py`.
 
 ## [RAGLang Parser](parser/README.md)
-To execute our script, run the following commands:
-1. `cd parser`
-2. `python3 run.py`.
-
+1. To execute our Parser script, you need to install Docker Desktop from Docker's official website.
+2. In the root directory, run
+```docker build -t raglang-parser .```
+3. Once its built, run the container with:
+```docker run --rm raglang-parser```
 
 ### 1. RagLang Grammar
 ```Program -> RQG
