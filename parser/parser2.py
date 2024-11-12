@@ -181,12 +181,12 @@ class Parser:
 
 # Test code
 # --------------------- # 
-lexer = Lexer("QUERY; SELECT name, age FROM students WHERE age > 18 LIMIT; 10")
-l2 = Lexer('RETRIEVE: SOURCE: "SalesDB.json" QUERY: SELECT * FROM sales_data WHERE age > "20" OR time = "2"; LIMIT: 5 GENERATE: PROMPT: "Summarize"')
-tokens = l2.scan()
-print(tokens)
-parser = Parser(tokens)
-ast = parser.parse()
-print(ast)
+# lexer = Lexer("QUERY; SELECT name, age FROM students WHERE age > 18 LIMIT; 10")
+# l2 = Lexer('RETRIEVE: SOURCE: "SalesDB.json" QUERY: SELECT * FROM sales_data WHERE age > "20" OR time = "2"; LIMIT: 5 GENERATE: PROMPT: "Summarize"')
+# tokens = l2.scan()
+# print(tokens)
+# parser = Parser(tokens)
+# ast = parser.parse()
+# print(ast)
 
 
