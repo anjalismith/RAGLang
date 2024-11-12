@@ -9,8 +9,14 @@ To execute our script, run the following commands:
 1. `cd lexer`
 2. `python3 run.py`.
 
-## [RAGLang Parser](parser/README.md)
-1. To execute our Parser script, you need to install Docker Desktop from Docker's official website.
+## RAGLang Parser
+If you have Python installed, you can execute our script by running the following command:
+
+```python3 run.py.```
+
+
+Otherwise, if you don't have Python installed, we have set up a Dockerfile. Use the following instructions to build and run the Docker container:
+1. Install Docker Desktop from Docker's official website.
 2. In the root directory, run
 ```docker build -t raglang-parser .```
 3. Once its built, run the container with:
