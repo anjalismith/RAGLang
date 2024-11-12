@@ -16,7 +16,7 @@ To execute our script, run the following commands:
 
 
 ### 1. RagLang Grammar
-Program -> RQG
+```Program -> RQG
 R -> "RETRIEVE" Colon Source
 Source -> "SOURCE" Colon String
 Q -> "QUERY" Colon "SELECT" A "FROM" Identifier W L
@@ -29,6 +29,7 @@ Condition -> Identifier Operator Value
 Value -> String | Number
 G -> "GENERATE" Colon Prompt
 Prompt -> "PROMPT" Colon String
+```
 
 ### 2. Parsing Algorithm
 **Implementation and Logic Details**
