@@ -206,7 +206,7 @@ Lexer Output:
 ```
 Parser Output:
 ```
-Syntax error: Expected SEMICOLON 'None' at position 15
+Syntax error: Expected SEMICOLON ';' at position 15
 AST: None
 ```
 
@@ -227,7 +227,7 @@ Lexer Output:
 
 Parser Output: 
 ```
-Syntax error: Expected COLON 'None' at position 1
+Syntax error: Expected COLON ':' at position 1
 AST: None
 ```
 

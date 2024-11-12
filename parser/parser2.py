@@ -47,14 +47,14 @@ class Parser:
         self.match("KEYWORD", "RETRIEVE")
         retrieve_node.children.append(ASTNode("Keyword", "RETRIEVE"))
         
-        self.match("COLON")
+        self.match("COLON", ":")
         
         # Source Node
         self.match("KEYWORD", "SOURCE")
         source_node = ASTNode("Source")
         source_node.children.append(ASTNode("Keyword", "SOURCE"))
         
-        self.match("COLON")
+        self.match("COLON", ":")
         
         source_name = self.match("STRING")
         source_node.children.append(ASTNode("String", value=source_name))
@@ -67,7 +67,7 @@ class Parser:
         self.match("KEYWORD", "QUERY")
         query_node.children.append(ASTNode("Keyword", "QUERY"))
         
-        self.match("COLON")
+        self.match("COLON", ":")
         
         self.match("KEYWORD", "SELECT")
         query_node.children.append(ASTNode("Keyword", "SELECT"))
@@ -98,10 +98,10 @@ class Parser:
             self.match("KEYWORD", "WHERE")
             where_node.children.append(ASTNode("Keyword", "WHERE"))
             where_node.children += self.d()
-            self.match("SEMICOLON")
+            self.match("SEMICOLON", ";")
             return where_node
         else:
-            self.match("SEMICOLON")
+            self.match("SEMICOLON", ";")
             return None
 
     def l(self):
@@ -110,7 +110,7 @@ class Parser:
             self.match("KEYWORD", "LIMIT")
             limit_node.children.append(ASTNode("Keyword", "LIMIT"))
             
-            self.match("COLON")
+            self.match("COLON", ":")
             
             number = self.match("NUMBER")
             limit_node.children.append(ASTNode("Number", value=number))
@@ -127,7 +127,7 @@ class Parser:
     def list(self):
         items = [ASTNode("Identifier", value=self.match("IDENTIFIER"))]
         while self.pos < len(self.tokens) and self.tokens[self.pos][0] == "COMMA":
-            self.match("COMMA")
+            self.match("COMMA", ",")
             items.append(ASTNode("Identifier", value=self.match("IDENTIFIER")))
         return items
 
@@ -165,13 +165,13 @@ class Parser:
         self.match("KEYWORD", "GENERATE")
         generate_node.children.append(ASTNode("Keyword", "GENERATE"))
         
-        self.match("COLON")
+        self.match("COLON", ":")
         
         self.match("KEYWORD", "PROMPT")
         prompt_node = ASTNode("Prompt")
         prompt_node.children.append(ASTNode("Keyword", "PROMPT"))
         
-        self.match("COLON")
+        self.match("COLON", ":")
         
         prompt_string = self.match("STRING")
         prompt_node.children.append(ASTNode("String", value=prompt_string))
