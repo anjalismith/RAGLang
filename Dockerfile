@@ -7,5 +7,4 @@ WORKDIR /compiler
 # Copy the entire project into the container
 COPY . /compiler
 
-# Change directory to the parser folder and run parser2.py
-CMD ["python", "parser/run.py"]
+CMD ["python3", "-m", "parser.parser2"]
