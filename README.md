@@ -237,8 +237,8 @@ AST: None
 RETRIEVE: 
     SOURCE: "CustomerDB.json" 
     SELECT customer_id, purchase_amount FROM transactions WHERE purchase_amount > 100 AND loyalty_status = "Gold";
-    GENERATE: 
-        PROMPT: "Summarize high-value transactions"
+GENERATE: 
+    PROMPT: "Summarize high-value transactions"
 ```
 Lexer Output: 
 ```
