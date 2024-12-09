@@ -25,6 +25,15 @@ Otherwise, if you don't have Python installed, we have set up a Dockerfile. Use 
 
 ## RAGLang Code Generator
 
+## Database
+To open the database, run `sqlite3 sample.db` 
+
+To see all the tables in your database, run `.tables`
+
+To see the schema of a specific table, run `.schema <table name>`
+
+To exit, run `.exit`
+
 ## Sample Programs
 
 ## Video
