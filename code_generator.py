@@ -43,9 +43,6 @@ class CodeGenerator:
 
         traverse(ast)
 
-        # Print query parts for debugging
-        print(f"Query parts: {query_parts}")  # Print the full list of query parts before joining
-
         query = " ".join(query_parts).strip()
         return f"{query};"  # Ensure the query ends with a semicolon
 
