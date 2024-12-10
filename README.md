@@ -47,7 +47,7 @@ If it's not installed, you can install it:
 Download SQLite from the [official website](https://www.sqlite.org/download.html) and follow the installation instructions.
 
 ### Commands
-To open the database, run `sqlite3 sample.db` 
+To open the database, run `sqlite3 <name of database>` ie, `sqlite3 sales-2024.db`
 
 To see all the tables in your database, run `.tables`
 
