@@ -291,7 +291,15 @@ Prompt: Create a 2-month marketing campaign to advertise our lowest selling prod
                         'Keyword': 'PROMPT'
                         'String': 'Summarize sales data to generate a motivational message that I can use to deliver to our salespeople for their hardwork this quarter.'
 ```
+* Output
+```
 
+====================================================================================================
+🌟 RAGLANG OUTPUT 🌟
+====================================================================================================
+
+Error in SQL query no such column: product_id
+```
 ### Sample Input 5 - Testing syntax error due to missing QUERY keyword
 * Input
 ```
