@@ -30,6 +30,23 @@ If you have Python installed, you can execute our script by running the followin
 `python3 run.py`
 
 ## Database
+### Installation:
+
+SQLite is typically pre-installed on many systems, but you can check by running:
+`sqlite3 --version`
+
+If it's not installed, you can install it:
+
+**Ubuntu/Debian**:
+`sudo apt-get install sqlite3`
+
+**MacOS (via Homebrew)**:
+`brew install sqlite`
+
+**Windows**: 
+Download SQLite from the [official website](https://www.sqlite.org/download.html) and follow the installation instructions.
+
+### Commands
 To open the database, run `sqlite3 sample.db` 
 
 To see all the tables in your database, run `.tables`
