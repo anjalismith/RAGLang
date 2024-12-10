@@ -1,5 +1,5 @@
 # RAGLang: A Programming Language for Retrieval-Augmented Generation
-Developed by Anjali Smith (**as6467**) and Shreeya Patel (**sjp2236**) for COMS4115: PLT Programming Assignment 1 
+Developed by Anjali Smith (**as6467**) and Shreeya Patel (**sjp2236**) for COMS4115: PLT Programming Assignment 3
 
 ## Overview
 RAGLang (Retrieval-Augmented Generation Language) is a programming language that combines structured data retrieval (using SQL-like queries) with natural language to output a prompt that can be sent to large language models (LLMs) for Retrieval-Augmented Generation tasks. 
@@ -54,41 +54,35 @@ To exit, run `.exit`
 
 * Parser Output (AST):
 ```
-'Program'
+                        'Program'
         'R'
                 'Keyword': 'RETRIEVE'
                 'Source'
                         'Keyword': 'SOURCE'
-                        'String': 'SalesDB.json'
+                        'String': 'sales-2024.db'
         'Q'
                 'Keyword': 'QUERY'
                 'Keyword': 'SELECT'
                 'A'
                         'List'
-                                'Identifier': 'product'
-                                'Identifier': 'total_sales'
+                                'Identifier': 'name'
+                                'Identifier': 'email'
                 'Keyword': 'FROM'
-                'Identifier': 'sales_data'
+                'Identifier': 'customers'
                 'Where'
                         'Keyword': 'WHERE'
-                        'D'
-                                'Condition'
-                                        'Identifier': 'year'
-                                        'Operator': '='
-                                        'Value': '2023'
-                                'Keyword': 'AND'
-                                'Condition'
-                                        'Identifier': 'region'
-                                        'Operator': '='
-                                        'Value': 'North America'
+                        'Condition'
+                                'Identifier': 'active'
+                                'Operator': '='
+                                'Value': 'true'
                 'L'
                         'Keyword': 'LIMIT'
-                        'Number': '5'
+                        'Number': '10'
         'G'
                 'Keyword': 'GENERATE'
                 'Prompt'
                         'Keyword': 'PROMPT'
-                        'String': 'Summarize the top-performing products in a brief report highlighting key sales figures and top products
+                        'String': 'Create a different thank you message for each customer.'
 
 ```
 * RagLang Output:
@@ -241,7 +235,7 @@ Data:
 Prompt: Create a 2-month marketing campaign to advertise our lowest selling products, which will be 25% off during Black Friday
 ```
 ### Sample Input 4 - Testing semantic error due to "no such column" SQL error
-
+* Input
 ```
     RETRIEVE:
         SOURCE: "sales-2024.db"\nQUERY: SELECT product_id FROM sales_data WHERE quantity > 10;LIMIT: 5
@@ -249,7 +243,7 @@ Prompt: Create a 2-month marketing campaign to advertise our lowest selling prod
         PROMPT: "Summarize sales data to generate a motivational message that I can use to deliver to our salespeople for their hardwork this quarter."
 ```
 
-Parser Output: 
+* Parser Output: 
 ```
 'Program'
         'R'
@@ -282,7 +276,7 @@ Parser Output:
 ```
 
 ### Sample Input 5 - Testing syntax error due to missing QUERY keyword
-
+* Input
 ```
     RETRIEVE:
         SOURCE: "sales-2024.db"
@@ -290,7 +284,7 @@ Parser Output:
     GENERATE:
         PROMPT: "Summarize high-value transactions"
 ```
-Parser Output:
+* Output:
 ```
 Syntax error: Expected KEYWORD 'QUERY' at position 5
 AST: None
