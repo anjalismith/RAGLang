@@ -11,28 +11,35 @@ class CodeGenerator:
             # Handle SELECT keyword
             if node.type == "Keyword" and node.value == "SELECT":
                 query_parts.append("SELECT")
+                for child in node.children:
+                    traverse(child)
             # Handle column names (List node) within the SELECT clause
-            elif node.type == "List" and node.value == "Identifier":
+            elif node.type == "List":
                 # Join the column values with commas and append to query_parts
-                print("here")
                 column_values = [child.value for child in node.children if child.type == "Identifier"]
-                print(f"Column values: {column_values}") if column_values else print("none") # Debug
-                query_parts.append(", ".join(column_values))  # Join columns with commas and add to query_parts
+                query_parts.append(", ".join(column_values))
             # Handle other nodes like FROM, WHERE, LIMIT, etc.
             elif node.type in {"Identifier", "Operator", "Value"}:
-                query_parts.append(node.value)
+                if node.type == "Value" and not (node.value.replace('.', '', 1).isdigit() or node.value.lstrip('-').replace('.', '', 1).isdigit()) and not (node.value == "true" or node.value == "false"):
+                        query_parts.append(f'"{node.value}"')
+                else:
+                    query_parts.append(node.value)
             elif node.type == "Keyword" and node.value in {"FROM", "WHERE", "LIMIT", "AND", "OR"}:
                 query_parts.append(node.value)
+                for child in node.children:
+                    traverse(child)
             elif node.type == "Number" and "LIMIT" in query_parts:  # Handle LIMIT value
                 query_parts.append(node.value)
+                for child in node.children:
+                    traverse(child)
             elif node.type == "D":  # Condition
                 traverse(node.children[0])  # Left operand
                 query_parts.append(node.children[1].value)  # Operator
                 traverse(node.children[2])  # Right operand
-
-            # Traverse children nodes
-            for child in node.children:
-                traverse(child)
+            else:
+                # Traverse children nodes
+                for child in node.children:
+                    traverse(child)
 
         traverse(ast)
 
@@ -59,6 +66,27 @@ class CodeGenerator:
                 result = traverse(child)
                 if result:
                     return result
+            return None
+
+        return traverse(ast)
+    
+    @staticmethod
+    def extract_source(ast):
+        """
+        Extracts the database name from the AST.
+        :param ast: Root ASTNode object representing the parsed input.
+        :return: The database name
+        """
+        def traverse(node):
+            if node.type == "Source":
+                for child in node.children:
+                    if child.type == "String":
+                        return child.value
+            else:
+                for child in node.children:
+                    result = traverse(child)
+                    if result:
+                        return result
             return None
 
         return traverse(ast)
