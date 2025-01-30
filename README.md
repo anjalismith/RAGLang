@@ -82,7 +82,7 @@ To exit, run `.exit`
                         'String': 'Create a different thank you message for each customer.'
 
 ```
-* RagLang Output:
+* Output:
 ```
 ====================================================================================================
 🌟 RAGLANG OUTPUT 🌟
@@ -154,7 +154,7 @@ AST:  'Program'
                         'Keyword': 'PROMPT'
                         'String': 'Write catchy descriptions of each of our top-selling products in 2023 for North America that we can use on our social media page.'
 ```
-* RagLang Output:
+* Output:
 ```
 ====================================================================================================
 🌟 RAGLANG OUTPUT 🌟
@@ -215,7 +215,7 @@ Parser Output:
                         'Keyword': 'PROMPT'
                         'String': 'Create a 2-month marketing campaign to advertise our lowest selling products, which will be 25% off during Black Friday'
 ```
-* RagLang Output
+* Output
 ```
 ====================================================================================================
 🌟 RAGLANG OUTPUT 🌟
