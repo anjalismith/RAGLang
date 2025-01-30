@@ -4,28 +4,9 @@ Developed by Anjali Smith (**as6467**) and Shreeya Patel (**sjp2236**) for COMS4
 ## Overview
 RAGLang (Retrieval-Augmented Generation Language) is a programming language that combines structured data retrieval (using SQL-like queries) with natural language to output a prompt that can be sent to large language models (LLMs) for Retrieval-Augmented Generation tasks. 
 
-## [RAGLang Lexer](lexer/README.md)
-To execute our script, run the following commands:
-1. `cd lexer`
-2. `python3 run.py`.
+## Sample Programs
 
-## RAGLang Parser
-If you have Python installed, you can execute our script by running the following command:
-
-1. `cd parser`
-2. `python3 run.py`.
-
-
-Otherwise, if you don't have Python installed, we have set up a Dockerfile. Use the following instructions to build and run the Docker container:
-1. Install Docker Desktop from Docker's official website.
-2. In the root directory, run
-```docker build -t raglang-parser .```
-3. Once its built, run the container with:
-```docker run --rm raglang-parser```
-
-## RAGLang Code Generator
-
-If you have Python installed, you can execute our script by running the following command:
+If you have Python installed, you can execute our script, which compiles and runs 5 sample RagLang programs, by running the following command:
 
 `python3 run.py`
 
@@ -55,7 +36,6 @@ To see the schema of a specific table, run `.schema <table name>`
 
 To exit, run `.exit`
 
-## Sample Programs
 
 #### Sample Input 1 - Testing the code generation phase on the customers table
 * Input:
@@ -314,7 +294,3 @@ Error in SQL query no such column: product_id
 Syntax error: Expected KEYWORD 'QUERY' at position 5
 AST: None
 ```
-
-
-## Video
-[Code Generation Phase Video](https://youtu.be/lKm4d2Trw6g)
